@@ -1,4 +1,6 @@
-﻿namespace Netezos.Rpc.Queries
+﻿using System.Runtime.CompilerServices;
+
+namespace Netezos.Rpc.Queries
 {
     /// <summary>
     /// Rpc query to access block data
@@ -53,6 +55,25 @@
         /// </summary>
         public RpcArray<RpcArray<RpcObject>> Operations
             => new RpcArray<RpcArray<RpcObject>>(this, "operations/");
+
+
+        /// <summary>
+        /// Gets the query of minimal valid time in the block
+        /// </summary>
+        public RpcObject MinimalVT => new RpcObject(this, "minimal_valid_time/");
+
+        /// <summary>
+        /// Gets the query of protocols in the block
+        /// </summary>
+        public RpcObject Protocols => new RpcObject(this, "protocols/");
+
+        /// <summary>
+        /// Gets the query of required_endorsements in the block
+        /// </summary>
+        public RpcObject RequiredEndorsements => new RpcObject(this, "required_endorsements/");
+
+
+
 
         internal BlockQuery(RpcQuery baseQuery, string append) : base(baseQuery, append) { }
     }

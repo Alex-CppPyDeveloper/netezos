@@ -57,6 +57,12 @@ namespace Netezos.Rpc.Queries
         /// </summary>
         public RpcObject Storage => new RpcObject(this, "storage/");
 
+        /// <summary>
+        /// Gets the query to the entrypoints of the contract
+        /// </summary>
+        public RpcObject Entrypoints => new RpcObject(this, "entrypoints/");
+
+
         internal ContractQuery(RpcQuery baseQuery, string append) : base(baseQuery, append) { }
     }
 }

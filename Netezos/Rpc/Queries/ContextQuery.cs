@@ -37,6 +37,12 @@ namespace Netezos.Rpc.Queries
         /// </summary>
         public SeedQuery Seed => new SeedQuery(this, "seed/");
 
+        /// <summary>
+        /// Gets the query to the big maps
+        /// </summary>
+        public RpcDictionary<int, RpcDictionary<string, RpcObject>> bigMaps => 
+            new RpcDictionary<int, RpcDictionary<string, RpcObject>>(this, "big_maps/");
+
         internal ContextQuery(RpcQuery baseQuery, string append) : base(baseQuery, append) { }
     }
 }

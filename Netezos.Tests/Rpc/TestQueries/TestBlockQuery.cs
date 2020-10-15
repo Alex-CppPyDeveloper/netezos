@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Netezos.Rpc;
+using Org.BouncyCastle.Crypto.Prng;
 using Xunit;
 
 namespace Netezos.Tests.Rpc.TestQueries
@@ -333,5 +334,55 @@ namespace Netezos.Tests.Rpc.TestQueries
 
             Assert.NotNull(stakingBalance);
         }   
+
+        [Fact]
+        public async Task TestBlockContractsEntrypoints()
+        {
+            var entrypoints = await Rpc.Blocks.Head.Context.Contracts["KT1VG2WtYdSWz5E7chTeAdDPZNy2MpP8pTfL"].Entrypoints.GetAsync();
+
+            Assert.NotNull(entrypoints);
+        }
+
+        [Fact]
+        public async Task TestBlockMinimalVT()
+        {
+            var minVt = await Rpc.Blocks.Head.MinimalVT.GetAsync();
+
+            Assert.NotNull(minVt);
+        }
+        
+        [Fact]
+        public async Task TestBlockProtocols()
+        {
+            var protocols = await Rpc.Blocks.Head.Protocols.GetAsync();
+
+            Assert.NotNull(protocols);
+        }
+
+        [Fact]
+        public async Task TestBlockRequiredEndorsements()
+        {
+            var reqEndors = await Rpc.Blocks.Head.RequiredEndorsements.GetAsync();
+
+            Assert.NotNull(reqEndors);
+        }
+
+        [Fact]
+        public async Task TestBlockHelpersCurrentLevel()
+        {
+            var currentLV = await Rpc.Blocks.Head.Helpers.CurrentLevel.GetAsync();
+
+            Assert.NotNull(currentLV);
+        }
+
+       [Fact]
+       public async Task TestBlockContextBigMap()
+        {
+            var bigMap = await Rpc.Blocks.Head.Context.bigMaps[124]["expruiDSAVDZSXbfG2dv5PYUNSqnvsG6qvxSZbhEYAthHB1RYp6yeJ"].GetAsync();
+
+            Assert.NotNull(bigMap);
+        }
+
+        
     }
 }

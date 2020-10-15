@@ -34,7 +34,23 @@
         /// Gets the query to scripts
         /// </summary>
         public ScriptsQuery Scripts => new ScriptsQuery(this, "scripts/");
-        
+
+        /// <summary>
+        /// Gets the query to current_level
+        /// </summary>
+        public RpcObject CurrentLevel => new RpcObject(this, "current_level/");
+
+        /// <summary>
+        /// Gets the query to levels_in_current_cycle
+        /// </summary>
+        public RpcObject LevelsInCurrentCycle => new RpcObject(this, "levels_in_current_cycle/");
+
+        /// <summary>
+        /// Gets the query to levels_in_current_cycle
+        /// </summary>
+        public RpcObject Complete => new RpcObject(this, "complete/");
+
+
         internal HelpersQuery(RpcQuery baseQuery, string append) : base(baseQuery, append) { }
     }
 }
